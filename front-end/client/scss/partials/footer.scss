@@ -1,0 +1,47 @@
+
+.footer {
+  width: 100%;
+  align-self: flex-end;
+  position: absolute;
+  bottom: 0;
+  padding: 25px 0;
+  &:before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background-color: $black;
+    opacity: .4;
+    height: 100%;
+    width: 100%;
+  }
+  .container{
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .moon-link{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+@include tablet{
+  .footer{
+    .container{
+      display: block;
+    }
+    .copyright{
+      display: block;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .moon-link{
+      display: block;
+      position: relative;
+      left: initial;
+      transform: none;
+      text-align: center;
+    }
+  }
+}

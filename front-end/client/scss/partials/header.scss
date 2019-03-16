@@ -1,0 +1,318 @@
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  padding-top: 40px;
+  box-sizing: border-box;
+  transition: background-color .3s ease;
+  a{
+    text-decoration: none;
+    transition: color .5s ease;
+  }
+  &.scrolled {
+    .mobile-menu-button {
+      span {
+        background-color: $red;
+      }
+    }
+    a {
+      color: $red;
+    }
+  }
+  &.open {
+    background-color: #ffffff;
+    a {
+      color: $black;
+    }
+    .drop-list {
+      max-height: 600px;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.logo-link {
+  text-decoration: none;
+  display: block;
+  width: 60px;
+  height: 60px;
+  font-family: Yadro, sans-serif;
+  position: relative;
+  color: #FFFFFF;
+  &:after {
+    font-size: 60px;
+    content: "\6c";
+  }
+}
+
+.desktop-menu {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  .desktop-main-menu {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    li {
+      margin: 0 2.8%;
+    }
+  }
+  .desktop-menu-links {
+    width: calc(100% - 60px);
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10%;
+    box-sizing: border-box;
+  }
+  a {
+    color: $white;
+    text-decoration: none;
+    transition: color .5s ease;
+  }
+  .main-menu {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    li {
+      margin: 0 2.8%;
+    }
+  }
+  .languages-links {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    list-style: none;
+    li {
+      color: $white;
+    }
+    a {
+      text-transform: uppercase;
+      font-size: 14px;
+      opacity: .5;
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+  .drop-list {
+    width: 100%;
+    position: relative;
+    margin-top: 8px;
+    background-color: inherit;
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    transition: background-color .3s ease, opacity .3s ease, visibility .3s ease;
+    .links-row {
+      display: none;
+      width: 100%;
+      flex-wrap: wrap;
+      opacity: 0;
+      visibility: hidden;
+      padding-bottom: 60px;
+      &.visible {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    .links-col {
+      width: 20%;
+      h5 {
+        font-size: 18px;
+        margin-bottom: 24px;
+        margin-top: 32px;
+        font-weight: 500;
+      }
+      a {
+        font-size: 14px;
+        opacity: .7;
+        transition: opacity .3s ease;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        margin-bottom: 8px;
+        &:nth-last-child(1) {
+          margin-bottom: 0;
+        }
+      }
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.mobile-menu-button {
+  display: none;
+  background: transparent;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 5;
+  span {
+    background: $white;
+    width: 30px;
+    height: 3px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    transition: transform .3s cubic-bezier(.77, .2, .05, 1), opacity .3s ease, -webkit-transform .3s cubic-bezier(.77, .2, .05, 1);
+    &:nth-child(odd){
+      width: 26px;
+    }
+    &:nth-last-child(1) {
+      margin-bottom: 0;
+    }
+  }
+  &.active {
+    span {
+      &:nth-child(1) {
+        transform: translateY(8px) rotate(-45deg);
+      }
+      &:nth-child(2) {
+        transform: rotateY(90deg);
+        transform-origin: right;
+      }
+      &:nth-child(3) {
+        transform: translateY(-8px) rotate(45deg);
+      }
+    }
+  }
+}
+
+.mobile-main-menu {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    padding: 0;
+    &.open {
+      height: 100vh;
+      .mobile-menu-button {
+        span {
+          background: $black;
+        }
+      }
+      .mobile-menu {
+        opacity: 1;
+        visibility: visible;
+        height: 100%;
+      }
+      .mobile-main-menu{
+        opacity: 1;
+        visibility: visible;
+        height: calc(100% - 90px);
+        padding-bottom: 30px;
+        box-sizing: border-box;
+        position: relative;
+      }
+    }
+  }
+  .desktop-menu {
+    display: none;
+  }
+  .mobile-menu {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding-top: 30px;
+  }
+  .mobile-menu-button {
+    display: flex;
+  }
+  .mobile-logo-area{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    align-content: center;
+    align-items: center;
+  }
+  .mobile-main-menu{
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    overflow: auto;
+    a{
+      color: $black;
+      transition: color .3s ease;
+    }
+    .mobile-parent-link {
+      position: relative;
+      &:after{
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        right: 0;
+        border-style: solid;
+        border-width: 0 6.5px 6px 6.5px;
+        transition: transform .3s ease;
+        border-color: transparent transparent $black transparent;
+        transform: translateY(-50%) translateX(25px) rotate(0deg);
+        top: 50%;
+      }
+      &.active{
+        color: $red;
+        &:after{
+          border-color: transparent transparent $red transparent;
+          transform: translateY(-50%) translateX(25px) rotate(180deg);
+        }
+      }
+    }
+  }
+  .mobile-menu {
+    ul {
+      text-align: center;
+      padding: 0;
+      list-style: none;
+      li {
+        margin: 30px auto 0;
+      }
+    }
+  }
+  .languages-links {
+    justify-content: center;
+  }
+  .mobile-dropdown {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+    &.expanded {
+      max-height: 100vh;
+    }
+  }
+
+  .main-link{
+    font-weight: bold;
+  }
+  .drop-list {
+    .links-col {
+      width: 100%;
+    }
+  }
+}

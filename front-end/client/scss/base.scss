@@ -1,0 +1,98 @@
+
+*{
+  outline: none;
+  margin: 0;
+}
+
+html, body{
+  min-height: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: Gotham Pro, sans-serif;
+  font-size: 18px;
+  &.is-loading{
+    overflow: hidden;
+  }
+}
+
+::selection{
+  background-color: $red;
+  color: $white;
+}
+
+h1{
+  font-size: 96px;
+  font-weight: normal;
+}
+
+h2{
+  font-size: 72px;
+  font-weight: normal;
+}
+
+h3{
+  font-size: 36px;
+  font-weight: normal;
+}
+
+h4{
+  font-size: 28px;
+  font-weight: normal;
+}
+
+h5{
+  font-size: 28px;
+  font-weight: normal;
+}
+
+button{
+  border: none;
+  outline: none;
+}
+
+.page{
+  min-height: 100%;
+}
+
+.page-content{
+  min-height: 100%;
+  position: relative;
+}
+
+.container{
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  max-width: 1400px;
+}
+
+@include tablet{
+
+  html,body{
+    font-size: 14px;
+  }
+  h1{
+    font-size: 48px;
+  }
+  h2{
+    font-size: 36px;
+  }
+  h3{
+    font-size: 24px;
+  }
+  h4{
+    font-size: 18px;
+  }
+  h5{
+    font-size: 16px;
+  }
+
+}
+
+
+@include mobile{
+  .container{
+    width: 86.7%;
+  }
+}

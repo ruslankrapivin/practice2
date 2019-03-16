@@ -1,0 +1,106 @@
+
+.services-section{
+  padding-top: 140px;
+  padding-bottom: 140px;
+}
+
+.services-container{
+  h2{
+    padding-bottom: 80px;
+  }
+  .grid-services{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 40px;
+    padding: 0;
+  }
+  .service-link{
+    display: flex;
+    position: relative;
+    align-content: center;
+    flex-wrap: wrap;
+    text-decoration: none;
+    min-height: 200px;
+    width: 200px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    color: $grey;
+    padding: 24px;
+    box-sizing: border-box;
+    box-shadow: 8px 8px 40px rgba(48, 54, 60, 0.08);
+    transition: background-color .5s ease, color .5s ease, box-shadow .5s ease-in-out;
+    font-size: 20px;
+    &:hover{
+      background-color: $red;
+      color: $white;
+      box-shadow: 8px 8px 40px rgba(48, 54, 60, 0.36);
+      .link-title{
+        transform: translateY(-20px);
+      }
+      .read-more{
+        opacity: 1;
+        visibility: visible;
+        display: block;
+      }
+    }
+    .link-title{
+      transform: translateY(0px);
+      transition: transform .3s ease;
+      width: 100%;
+    }
+    .read-more{
+      position: absolute;
+      bottom: 32px;
+      font-size: 18px;
+      color: $white;
+      transition: visibility .3s ease, opacity .3s ease;
+      transition-delay: .3s;
+      opacity: 0;
+      visibility: hidden;
+      width: 100%;
+      &:after{
+        content: '';
+        position: absolute;
+        right: 48px;
+        width: 32px;
+        height: 10px;
+        top: 50%;
+        transition: transform .3s ease;
+        transform: translateY(-50%) translateX(0);
+        background-image: url("../images/svg/link-arrow.svg");
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+      &:hover{
+        &:after{
+          transform: translateY(-50%) translateX(10px);
+        }
+      }
+    }
+  }
+}
+
+
+@include mobile{
+  .services-section{
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+  .services-container{
+    h2{
+      padding-bottom: 24px;
+    }
+    .grid-services{
+      grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
+      grid-gap: 16px;
+    }
+    .service-link{
+      width: 41vw;
+      min-height: 41vw;
+      line-height: 16px;
+      font-size: 14px;
+      padding: 12px;
+    }
+  }
+}

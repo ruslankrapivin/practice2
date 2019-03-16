@@ -1,0 +1,147 @@
+
+.contacts {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  color: $white;
+}
+
+.contacts-info {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  h2 {
+    font-size: 56px;
+    margin-bottom: 80px;
+  }
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .col {
+    width: 50%;
+    form{
+      max-width: 370px;
+    }
+    .key{
+      display: block;
+      line-height: 16px;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+    }
+    .value{
+      display: block;
+      line-height: 28px;
+      font-size: 24px;
+      letter-spacing: 0.02em;
+      margin-bottom: 30px;
+      a{
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  }
+
+  .form-row {
+    transform: translateZ(0);
+    margin-bottom: 35px;
+    input, textarea {
+      display: block;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      padding: 7px 0;
+      resize: none;
+      border: 0 none;
+      font-size: 16px;
+      line-height: 21px;
+      letter-spacing: 0.35px;
+      font-weight: normal;
+      background: transparent;
+      color: $white;
+      border-bottom: 3px solid;
+      transition: all 0.3s ease;
+      &:focus, &.validate {
+        & + label {
+          transform: translateY(-21px) scale(0.75);
+        }
+      }
+    }
+    label {
+      font-size: 16px;
+      line-height: 21px;
+      display: block;
+      position: absolute;
+      top: 7px;
+      left: 0;
+      z-index: 15;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      transform-origin: 0;
+    }
+  }
+  button{
+    margin-top: 80px;
+    background: transparent;
+    color: $white;
+    border-bottom: 2px solid $white;
+    padding-bottom: 8px;
+    font-family: inherit;
+    font-size: 18px;
+  }
+}
+
+@include tablet{
+  .contacts{
+    padding-bottom: 160px;
+    padding-top: 76px;
+  }
+  .contacts-info{
+    h2{
+      text-align: center;
+      line-height: 41px;
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+    form{
+      margin: auto;
+    }
+    .row{
+      flex-direction: column;
+      .col{
+        max-width: 370px;
+        margin: auto;
+      }
+    }
+    .col{
+      width: 100%;
+      .key{
+        line-height: 14px;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+      }
+      .value{
+        line-height: 18px;
+        font-size: 16px;
+        letter-spacing: 0.02em;
+        margin-bottom: 32px;
+      }
+    }
+    .form-row{
+      input{
+        border-bottom: 2px solid $white;
+      }
+      label{
+        font-size: 14px;
+      }
+    }
+    button{
+      margin-top: 20px;
+    }
+  }
+}

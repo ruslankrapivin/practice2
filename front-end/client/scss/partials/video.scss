@@ -1,0 +1,22 @@
+
+
+.video-wrapper{
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  &:before{
+    position: absolute;
+  }
+}
+
+.head-video{
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  filter: blur(5px) brightness(.5);
+}
